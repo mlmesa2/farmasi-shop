@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Tailwind v4: forzar dark mode basado EXCLUSIVAMENTE en la clase .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-bg: #fbf9f5;
+  --color-brand-primary: #8c4b55;
+  --color-brand-secondary: #7d562d;
+  --color-brand-accent: #ffabb7;
+  
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#fbf9f5] text-[#1b1c1a] font-sans antialiased transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-[#1b1c1a] text-[#fbf9f5];
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}

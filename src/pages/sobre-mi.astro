@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Sobre Mí">
+  <Navbar />
+  
+  <main class="flex-grow pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Hero Section (Fluida, sin cajas) -->
+      <section class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mb-32">
+        <div class="w-full lg:w-1/2 order-2 lg:order-1">
+          <span class="text-brand-primary font-serif italic text-xl mb-4 block">Conóceme</span>
+          <h1 class="text-5xl md:text-7xl font-bold mb-8 text-[#1b1c1a] dark:text-[#fbf9f5] leading-tight">
+            Descubre tu <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-[#b8707a] font-serif">belleza auténtica</span>
+          </h1>
+          <p class="text-lg text-[#1b1c1a]/70 dark:text-[#fbf9f5]/70 mb-10 leading-relaxed font-light">
+            Hola, soy tu asesora de belleza y orgullosa Beauty Influencer de Farmasi. Mi propósito es acompañarte en el proceso de resaltar tu esencia natural, recomendándote productos de alta gama europea que cuidan tu piel desde adentro hacia afuera.
+          </p>
+          <a href="/asesoria" class="group inline-flex items-center gap-3 bg-brand-primary text-white px-8 py-4 rounded-full font-medium shadow-md shadow-brand-primary/20 hover:bg-[#b8707a] hover:shadow-lg transition-all duration-300">
+            Únete a mi equipo
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="w-full lg:w-5/12 order-1 lg:order-2 lg:ml-auto">
+          <div class="relative w-full max-w-sm mx-auto">
+            <div class="rounded-2xl overflow-hidden relative z-10 shadow-2xl bg-gray-100 dark:bg-gray-800" style="aspect-ratio: 3/4;">
+              <Image 
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+                alt="Retrato de la asesora de belleza" 
+                width={800} 
+                height={1066} 
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <!-- Elemento decorativo sutil -->
+            <div class="absolute -bottom-6 -left-6 w-full h-full border border-brand-primary/30 rounded-2xl z-0 pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Farmasi Features (Estilo limpio y minimalista sin contenedores grises) -->
+      <section class="max-w-5xl mx-auto border-t border-gray-200 dark:border-gray-800 pt-24 mb-16">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-[#1b1c1a] dark:text-[#fbf9f5]">¿Por qué elegí Farmasi?</h2>
+          <p class="text-[#1b1c1a]/60 dark:text-[#fbf9f5]/60 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Nuestra filosofía va más allá del maquillaje. Nos regimos por las estrictas Reglas de Oro del Dr. C. Tuna para garantizar productos seguros, éticos y de calidad inigualable.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16">
+          
+          <!-- Feature 1 -->
+          <div class="text-center group">
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-primary/5 text-brand-primary group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl mb-3 text-[#1b1c1a] dark:text-[#fbf9f5]">Libre de Crueldad</h3>
+            <p class="text-sm text-[#1b1c1a]/60 dark:text-[#fbf9f5]/60 font-light leading-relaxed">Nunca probamos nuestros productos en animales. Respetamos la vida.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="text-center group">
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-primary/5 text-brand-primary group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl mb-3 text-[#1b1c1a] dark:text-[#fbf9f5]">Fórmulas Limpias</h3>
+            <p class="text-sm text-[#1b1c1a]/60 dark:text-[#fbf9f5]/60 font-light leading-relaxed">Sin parabenos, metales pesados ni ingredientes tóxicos para tu piel.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="text-center group">
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-primary/5 text-brand-primary group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl mb-3 text-[#1b1c1a] dark:text-[#fbf9f5]">Dermatológico</h3>
+            <p class="text-sm text-[#1b1c1a]/60 dark:text-[#fbf9f5]/60 font-light leading-relaxed">Fórmulas testadas por expertos, seguras incluso en pieles sensibles.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="text-center group">
+            <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-brand-primary/5 text-brand-primary group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-xl mb-3 text-[#1b1c1a] dark:text-[#fbf9f5]">Calidad Europea</h3>
+            <p class="text-sm text-[#1b1c1a]/60 dark:text-[#fbf9f5]/60 font-light leading-relaxed">Producido en una de las instalaciones más avanzadas de Europa.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <WhatsAppButton />
+  <Footer />
+</Layout>

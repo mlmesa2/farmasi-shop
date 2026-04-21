@@ -1,0 +1,53 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${entry.data.title} | FantasiShop`}>
+  <Navbar />
+  
+  <main class="flex-grow pt-32 pb-24">
+    <article class="max-w-3xl mx-auto px-6">
+      {entry.data.image && (
+        <div class="aspect-[21/9] rounded-2xl overflow-hidden mb-12 shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+          <img 
+            src={entry.data.image} 
+            alt={entry.data.title} 
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      
+      <div class="text-center mb-12">
+        <span class="text-brand-primary font-bold uppercase tracking-wider text-sm mb-4 block">
+          {entry.data.publishDate.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </span>
+        <h1 class="text-4xl md:text-5xl font-serif font-bold mb-6">{entry.data.title}</h1>
+        <div class="flex flex-wrap justify-center gap-2">
+          {entry.data.tags?.map((tag: string) => (
+            <span class="px-3 py-1 bg-brand-bg dark:bg-[#1b1c1a] text-xs font-bold rounded-full opacity-80 border border-brand-secondary/20">#{tag}</span>
+          ))}
+        </div>
+      </div>
+      
+      <div class="prose prose-lg dark:prose-invert prose-headings:font-serif prose-a:text-brand-primary hover:prose-a:text-brand-secondary prose-img:rounded-xl max-w-none">
+        <Content />
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

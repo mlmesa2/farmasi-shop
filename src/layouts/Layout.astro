@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { 
+	title, 
+	description = "FantasiShop - Promocionando la belleza con Farmasi. Únete a mi equipo.",
+	image = "/favicon.svg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth overflow-y-scroll">
+	<head>
+		<!-- Anti-FOUC: dark mode aplicado ANTES de renderizar nada -->
+		<script is:inline>
+			(function() {
+				var theme = localStorage.getItem('theme');
+				if (!theme) {
+					theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+					localStorage.setItem('theme', theme);
+				}
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+				}
+			})();
+		</script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO & Metadata -->
+		<title>{title} | FantasiShop</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={`${title} | FantasiShop`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={`${title} | FantasiShop`} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		
+		<!-- Google Fonts: Noto Serif & Manrope -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+		
+
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<slot />
+	</body>
+</html>

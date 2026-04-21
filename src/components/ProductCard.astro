@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  title: string;
+  category: string;
+  price: string;
+  imageUrl: string;
+  link: string;
+}
+
+const { title, category, price, imageUrl, link } = Astro.props;
+---
+
+<a href={link} target="_blank" rel="noopener noreferrer" class="block group">
+  <div class="bg-white dark:bg-[#252624] rounded-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(27,28,26,0.06)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+    <div class="aspect-[4/5] overflow-hidden relative">
+      <Image 
+        src={imageUrl} 
+        alt={title} 
+        width={800}
+        height={1000}
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <!-- Gradient overlay on hover -->
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <span class="text-white text-sm font-bold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+          Comprar en Farmasi →
+        </span>
+      </div>
+    </div>
+    
+    <div class="pt-6 pb-8 px-6">
+      <span class="inline-block px-3 py-1 bg-brand-secondary/10 dark:bg-brand-secondary/20 text-brand-secondary dark:text-[#ffca98] rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+        {category}
+      </span>
+      <h3 class="font-serif text-xl mb-2 text-[#1b1c1a] dark:text-brand-bg group-hover:text-brand-primary transition-colors">{title}</h3>
+      <p class="font-medium text-lg text-brand-primary/80">{price}</p>
+    </div>
+  </div>
+</a>

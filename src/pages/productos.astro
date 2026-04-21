@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+// Datos de ejemplo, normalmente vendrían de una API o Markdown
+const allProducts = [
+  {
+    title: "VFX Pro Camera Ready Foundation",
+    category: "Maquillaje",
+    price: "$25.00",
+    imageUrl: "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Dr. C. Tuna Calendula Oil",
+    category: "Cuidado de la Piel",
+    price: "$30.00",
+    imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Double Lash Extend Mascara",
+    category: "Ojos",
+    price: "$18.00",
+    imageUrl: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Matte Liquid Lipstick",
+    category: "Labios",
+    price: "$15.00",
+    imageUrl: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Dr. C. Tuna Tea Tree Serum",
+    category: "Cuidado de la Piel",
+    price: "$22.00",
+    imageUrl: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Terracotta Highlighting Powder",
+    category: "Maquillaje",
+    price: "$28.00",
+    imageUrl: "https://images.unsplash.com/photo-1590156546946-ce55a12a6a5d?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  }
+];
+---
+
+<Layout title="Catálogo de Productos">
+  <Navbar />
+  
+  <main class="flex-grow pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Nuestros Productos</h1>
+        <p class="text-lg text-[#1b1c1a]/70 dark:text-brand-bg/70">
+          Descubre la calidad europea de Farmasi. Cosméticos de alta gama, cuidado de la piel dermatológicamente probado y mucho más.
+        </p>
+      </div>
+
+      <!-- Filters (Visual only for mockup) -->
+      <div class="flex flex-wrap justify-center gap-4 mb-16">
+        {['Todos', 'Maquillaje', 'Cuidado de la Piel', 'Ojos', 'Labios'].map((cat, idx) => (
+          <button class={`px-6 py-2 rounded-full font-bold text-sm transition-colors ${idx === 0 ? 'bg-[#1b1c1a] text-brand-bg dark:bg-brand-bg dark:text-[#1b1c1a]' : 'bg-white dark:bg-[#252624] hover:bg-brand-primary hover:text-white'}`}>
+            {cat}
+          </button>
+        ))}
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allProducts.map(product => (
+          <ProductCard {...product} />
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <WhatsAppButton />
+  <Footer />
+</Layout>

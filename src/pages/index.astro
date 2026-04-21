@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const featuredProducts = [
+  {
+    title: "VFX Pro Camera Ready Foundation",
+    category: "Maquillaje",
+    price: "$25.00",
+    imageUrl: "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Dr. C. Tuna Calendula Oil",
+    category: "Cuidado de la Piel",
+    price: "$30.00",
+    imageUrl: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  },
+  {
+    title: "Double Lash Extend Mascara",
+    category: "Ojos",
+    price: "$18.00",
+    imageUrl: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=800",
+    link: "#"
+  }
+];
+---
+
+<Layout title="Inicio">
+  <Navbar />
+  
+  <main class="flex-grow pt-20">
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center overflow-hidden bg-[#f4ece3] dark:bg-[#252624]">
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=2000" 
+          alt="Beauty Background" 
+          class="w-full h-full object-cover opacity-40 dark:opacity-20"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-bg/90 dark:from-[#1b1c1a]/90 to-transparent"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div class="max-w-2xl">
+          <span class="inline-block px-4 py-1.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary text-sm font-bold uppercase tracking-wider rounded-full mb-6 animate-fade-in">
+            Descubre tu mejor versión
+          </span>
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 text-[#1b1c1a] dark:text-brand-bg animate-slide-up" style="animation-delay: 100ms;">
+            Belleza <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">
+              Sin Límites
+            </span>
+          </h1>
+          <p class="text-lg text-[#1b1c1a]/80 dark:text-brand-bg/80 mb-10 max-w-lg animate-slide-up" style="animation-delay: 200ms;">
+            Explora la exclusiva línea de productos Farmasi y únete a nuestra comunidad de emprendedores de belleza.
+          </p>
+          <div class="flex flex-wrap gap-4 animate-slide-up" style="animation-delay: 300ms;">
+            <a href="/productos" class="px-8 py-4 bg-brand-primary text-white rounded-full font-bold hover:shadow-[0_10px_20px_rgba(140,75,85,0.3)] hover:-translate-y-1 transition-all duration-300">
+              Ver Catálogo
+            </a>
+            <a href="/asesoria" class="px-8 py-4 bg-white dark:bg-[#2a2b29] text-[#1b1c1a] dark:text-brand-bg rounded-full font-bold shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
+              Quiero ser Socia
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="text-4xl font-bold mb-4">Favoritos del Mes</h2>
+          <p class="text-[#1b1c1a]/70 dark:text-brand-bg/70 max-w-2xl">Los productos más elegidos por nuestra comunidad para resaltar tu belleza natural.</p>
+        </div>
+        <a href="/productos" class="hidden md:inline-flex items-center font-bold text-brand-primary hover:text-brand-secondary transition-colors group">
+          Ver todos
+          <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProducts.map(product => (
+          <ProductCard {...product} />
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <WhatsAppButton />
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+    opacity: 0;
+  }
+  .animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+    opacity: 0;
+  }
+</style>
