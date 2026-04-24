@@ -3,12 +3,13 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { SITE_CONFIG } from '../../constants/config';
 
 const posts = await getCollection('blog');
 posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<Layout title="Blog de Belleza | FantasiShop">
+<Layout title={`Blog de Belleza | ${SITE_CONFIG.name}`}>
   <Navbar />
   
   <main class="flex-grow pt-32 pb-24">

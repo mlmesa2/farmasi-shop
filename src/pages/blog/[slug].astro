@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { SITE_CONFIG } from '../../constants/config';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -16,7 +17,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<Layout title={`${entry.data.title} | FantasiShop`}>
+<Layout title={`${entry.data.title} | ${SITE_CONFIG.name}`}>
   <Navbar />
   
   <main class="flex-grow pt-32 pb-24">

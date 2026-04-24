@@ -1,4 +1,4 @@
----
+import { SITE_CONFIG } from "../constants/config";
 const links = [
   { name: 'Inicio', href: '/' },
   { name: 'Productos', href: '/productos' },
@@ -17,7 +17,7 @@ function isActive(href: string) {
 
 <header class="fixed w-full top-0 z-50 bg-white/80 dark:bg-[#1b1c1a]/80 backdrop-blur-md">
   <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-    <a href="/" class="text-2xl font-serif font-bold text-brand-primary">FantasiShop</a>
+    <a href="/" class="text-2xl font-serif font-bold text-brand-primary">{SITE_CONFIG.name}</a>
 
     <nav class="hidden md:flex items-center space-x-1">
       {links.map(link => {

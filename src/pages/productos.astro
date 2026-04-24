@@ -15,6 +15,21 @@ const categories = ['Todos', ...new Set(allProducts.map(p => p.category))];
 ---
 
 <Layout title="Catálogo de Productos">
+  {/* Schema ItemList para SEO de Catálogo */}
+  <script type="application/ld+json" is:inline set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "numberOfItems": allProducts.length,
+    "itemListElement": allProducts.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": product.link,
+      "name": product.title,
+      "image": product.imageUrl
+    }))
+  })}>
+  </script>
+  
   <Navbar />
   
   <main class="flex-grow pt-32 pb-24">
