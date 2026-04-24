@@ -1,32 +1,66 @@
-<footer class="bg-[#e4e2de] dark:bg-[#121212] text-[#1b1c1a] dark:text-[#fbf9f5] pt-16 pb-8 transition-colors duration-300 mt-auto">
+---
+import { SITE_CONFIG } from '../constants/config';
+---
+<footer
+  class="bg-[#e4e2de] dark:bg-[#121212] text-[#1b1c1a] dark:text-[#fbf9f5] pt-16 pb-8 transition-colors duration-300 mt-auto"
+>
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
     <div>
-      <h3 class="font-serif text-2xl font-bold text-brand-primary mb-4">FantasiShop</h3>
+      <h3 class="font-serif text-2xl font-bold text-brand-primary mb-4">
+        {SITE_CONFIG.name}
+      </h3>
       <p class="text-sm text-[#1b1c1a]/70 dark:text-[#fbf9f5]/70 max-w-sm">
-        Tu portal exclusivo para descubrir y unirte al mundo de la belleza con Farmasi. Calidad, estilo y oportunidad de negocio en un solo lugar.
+        Tu portal exclusivo para descubrir y unirte al mundo de la belleza con
+        Farmasi. Calidad, estilo y oportunidad de negocio en un solo lugar.
       </p>
     </div>
-    
+
     <div>
-      <h4 class="font-bold mb-4 uppercase tracking-wider text-sm text-[#1b1c1a] dark:text-[#fbf9f5]">Enlaces Rápidos</h4>
+      <h4
+        class="font-bold mb-4 uppercase tracking-wider text-sm text-[#1b1c1a] dark:text-[#fbf9f5]"
+      >
+        Enlaces Rápidos
+      </h4>
       <ul class="space-y-2 text-sm text-[#1b1c1a]/70 dark:text-[#fbf9f5]/70">
-        <li><a href="/productos" class="hover:text-brand-primary transition-colors">Productos</a></li>
-        <li><a href="/asesoria" class="hover:text-brand-primary transition-colors">Únete a mi Equipo</a></li>
-        <li><a href="/blog" class="hover:text-brand-primary transition-colors">Blog de Belleza</a></li>
-        <li><a href="/sobre-mi" class="hover:text-brand-primary transition-colors">Sobre Mí</a></li>
+        <li>
+          <a
+            href="/productos"
+            class="hover:text-brand-primary transition-colors">Productos</a>
+        </li>
+        <li>
+          <a href="/asesoria" class="hover:text-brand-primary transition-colors"
+            >Únete a mi Equipo</a>
+        </li>
+        <li>
+          <a href="/blog" class="hover:text-brand-primary transition-colors"
+            >Blog de Belleza</a>
+        </li>
+        <li>
+          <a href="/sobre-mi" class="hover:text-brand-primary transition-colors"
+            >Sobre Mí</a>
+        </li>
       </ul>
     </div>
-    
+
     <div>
-      <h4 class="font-bold mb-4 uppercase tracking-wider text-sm text-[#1b1c1a] dark:text-[#fbf9f5]">Contacto</h4>
+      <h4
+        class="font-bold mb-4 uppercase tracking-wider text-sm text-[#1b1c1a] dark:text-[#fbf9f5]"
+      >
+        Contacto
+      </h4>
       <ul class="space-y-2 text-sm text-[#1b1c1a]/70 dark:text-[#fbf9f5]/70">
-        <li>Email: contacto@fantasishop.com</li>
-        <li>WhatsApp: +123 456 7890</li>
+        <li>Email: {SITE_CONFIG.contact.email}</li>
+        <li>WhatsApp: {SITE_CONFIG.contact.whatsapp}</li>
       </ul>
     </div>
   </div>
-  
-  <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-black/10 dark:border-white/10 text-center text-xs text-[#1b1c1a]/50 dark:text-[#fbf9f5]/50">
-    <p>&copy; {new Date().getFullYear()} FantasiShop. Distribuidor Independiente Farmasi. Todos los derechos reservados.</p>
+
+  <div
+    class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-black/10 dark:border-white/10 text-center text-xs text-[#1b1c1a]/50 dark:text-[#fbf9f5]/50"
+  >
+    <p>
+      &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. Distribuidor Independiente Farmasi.
+      Todos los derechos reservados.
+    </p>
   </div>
 </footer>

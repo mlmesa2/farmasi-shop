@@ -1,5 +1,6 @@
 ---
-const phoneNumber = "1234567890"; // Reemplazar con el número real
+import { SITE_CONFIG } from '../constants/config';
+const phoneNumber = SITE_CONFIG.contact.whatsappRaw;
 const message = "Hola! Quiero más información sobre los productos y cómo unirme al equipo Farmasi.";
 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 ---
