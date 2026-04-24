@@ -9,6 +9,6 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   image: {
-    domains: ['images.unsplash.com']
+    domains: ['images.unsplash.com', 'ocpwrqerrabtomsombpt.supabase.co']
   }
 });
